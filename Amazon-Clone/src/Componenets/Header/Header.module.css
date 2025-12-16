@@ -33,6 +33,7 @@
 }
 .delivery :hover {
   cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
 .delivery p {
   font-size: 11px;
@@ -60,6 +61,7 @@
 }
 .search select:hover {
   background-color: #9a9696;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
 .search input {
   border: 1px solid white;
@@ -74,6 +76,7 @@
 }
 .search svg:hover {
   background-color: #470f2f;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
 .search:focus-within {
   border: 2px solid #911a61;
@@ -141,6 +144,7 @@
 .lower_container ul li:hover {
   border: 1px solid white;
   border-radius: 5px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
 .lower_container {
   background-color: #085749;
