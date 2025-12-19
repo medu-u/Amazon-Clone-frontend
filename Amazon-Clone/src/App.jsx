@@ -1,18 +1,21 @@
 import React from "react";
-import Routing from "./Router";
-import Category from "./Componenets/Category/Category";
-import Product from "./Componenets/Products/Product";
-import Carousel from './Componenets/Carousel/CarouselEffect'
+import Routing from "./Routing";
+import CarouselEffect from "./Components/Carousel/CarouselEffect";
+import Category from "./Components/Category/Category";
+import Header from "./Components/Header/Header";
+import Product from "./Components/Products/Product";
+
 
 function App() {
   return (
     <>
-      <Routing />
-      <Carousel />
-      <Category />
-      <Product />
+    <Header/>
+    <CarouselEffect/>
+    <Category/>
+    <Product/>
     </>
-  );
+  )
+      
 }
 
 export default App;

@@ -1,6 +1,6 @@
 import React from 'react'
-import LayOut from '../../Componenets/Layout/Layout'
 import Styles from './Orders.module.css'
+import LayOut from '../../Components/LayOut/LayOut'
 
 function Orders() {
   return (

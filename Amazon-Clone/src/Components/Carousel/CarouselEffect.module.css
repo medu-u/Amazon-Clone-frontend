@@ -1,0 +1,35 @@
+.hero_img {
+  position: relative;
+}
+.hero_img::before {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 200px;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(225, 225, 225, 0),
+    rgba(255, 255, 255)
+  );
+}
+/* 📱 Mobile (max 600px) */
+@media (max-width: 600px) {
+  .hero_img::before {
+    height: 100px; /* smaller fade */
+  }
+}
+
+/* 📱📱 Tablet (max 900px) */
+@media (max-width: 900px) {
+  .hero_img::before {
+    height: 150px;
+  }
+}
+
+/* 🖥 Large screens */
+@media (min-width: 1200px) {
+  .hero_img::before {
+    height: 250px;
+  }
+}

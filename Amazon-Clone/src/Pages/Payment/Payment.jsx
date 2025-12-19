@@ -1,6 +1,8 @@
 import React from 'react'
 import Styles from './Payment.module.css'
-import LayOut from '../../Componenets/Layout/Layout';
+import LayOut from '../../Components/LayOut/LayOut';
+
+
 
 function Payment() {
   return (

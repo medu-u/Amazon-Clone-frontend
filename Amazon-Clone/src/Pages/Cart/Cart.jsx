@@ -1,6 +1,7 @@
 import React from 'react'
 import Styles from './Cart.module.css'
-import LayOut from '../../Componenets/Layout/Layout';
+import LayOut from '../../Components/LayOut/LayOut';
+
 
 function Cart() {
   return (
