@@ -10,7 +10,6 @@
   margin: auto 0;
   background: #fff;
   border-radius: 10px;
-  text-align: center;
   transition: transform 0.3s ease;
 }
 .card_container:hover {
@@ -52,7 +51,6 @@
   display: flex;
   align-items: center;
   padding: 5px 0px;
-  justify-content: center;
   gap: 5px;
   margin: 5px 0;
 }
