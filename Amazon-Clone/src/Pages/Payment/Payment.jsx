@@ -1,8 +1,6 @@
-import React from 'react'
-import Styles from './Payment.module.css'
-import LayOut from '../../Components/LayOut/LayOut';
-
-
+import React from "react";
+import Styles from "./Payment.module.css";
+import LayOut from "../../Components/LayOut/LayOut";
 
 function Payment() {
   return (
@@ -12,4 +10,4 @@ function Payment() {
   );
 }
 
-export default Payment
+export default Payment;

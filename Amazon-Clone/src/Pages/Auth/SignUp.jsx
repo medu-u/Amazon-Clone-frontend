@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 
-import Styles from './SignUp.module.css';
-import LayOut from '../../Components/LayOut/LayOut';
+import Styles from "./SignUp.module.css";
+import LayOut from "../../Components/LayOut/LayOut";
 
 function SignUp() {
   return (
@@ -11,4 +11,4 @@ function SignUp() {
   );
 }
 
-export default SignUp
+export default SignUp;

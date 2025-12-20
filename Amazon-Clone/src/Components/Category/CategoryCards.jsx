@@ -7,13 +7,13 @@ function CategoryCards({ data }) {
   return (
     <div className={Styles.category}>
 
-      <a href="">
+      <Link to={`/category/${data.name}`}>
         <span>
           <h2>{data.title}</h2>
         </span>
         <img src={data.imgLink} alt="" />
         <p>{data.description}</p>
-      </a>
+      </Link>
 
     </div>
   );

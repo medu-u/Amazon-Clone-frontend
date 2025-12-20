@@ -1,7 +1,6 @@
-import React from 'react'
-import Styles from './Cart.module.css'
-import LayOut from '../../Components/LayOut/LayOut';
-
+import React from "react";
+import Styles from "./Cart.module.css";
+import LayOut from "../../Components/LayOut/LayOut";
 
 function Cart() {
   return (
@@ -11,4 +10,4 @@ function Cart() {
   );
 }
 
-export default Cart
+export default Cart;

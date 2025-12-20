@@ -4,7 +4,7 @@ import { SlLocationPin } from "react-icons/sl";
 import { BiCart } from "react-icons/bi";
 import styles from "./Header.module.css";
 import LowerHeader from "./LowerHeader";
-
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -13,9 +13,9 @@ function Header() {
         <div className={styles.header_container}>
           <div className={styles.logo_container}>
             {/* logo */}
-            <a href="/">
+            <Link to="/">
               <img src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" />
-            </a>
+            </Link>
             {/* delivery */}
             <div className={styles.delivery}>
               <span>
@@ -39,7 +39,7 @@ function Header() {
 
           {/* right side */}
           <div className={styles.order_container}>
-            <a href="" className={styles.language}>
+            <Link to="" className={styles.language}>
               <img
                 src="https://pngimg.com/uploads/flags/flags_PNG14592.png"
                 alt="usa flag"
@@ -47,21 +47,21 @@ function Header() {
               <select>
                 <option value="EN">EN</option>
               </select>
-            </a>
+            </Link>
             {/* Three components */}
-            <a href="" className={styles.account}>
+            <Link to="" className={styles.account}>
               <p>Hello, Sign In</p>
               <span>Account & Lists</span>
               <select name="" id=""></select>
-            </a>
-            <a href="" className={styles.account}>
+            </Link>
+            <Link to="/orders" className={styles.account}>
               <p>Returns</p>
               <span>& Orders</span>
-            </a>
-            <a href="" className={styles.cart}>
+            </Link>
+            <Link to="/cart" className={styles.cart}>
               <BiCart size={25} />
               <span>0</span>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -71,4 +71,3 @@ function Header() {
 }
 
 export default Header;
-

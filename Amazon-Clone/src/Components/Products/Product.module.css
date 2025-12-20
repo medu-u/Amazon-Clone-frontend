@@ -16,7 +16,6 @@
 .card_container:hover {
   transform: translateY(-5px);
 }
-
 .card_container:hover .button {
   display: block;
 }
@@ -74,6 +73,30 @@
 .product_container section {
   margin: 0 auto;
 }
+.product_flexed {
+  box-shadow: none;
+  height: auto;
+  display: flex;
+  gap: 50px;
+  width: 100%;
+}
+.product_flexed h2 {
+  padding: 20px 0px;
+}
+
+.product_flexed .button {
+  display: block;
+  position: static;
+  width: 150px;
+  margin-right: 40px;
+}
+.product_flexed {
+  height: 50vh;
+}
+.product_flexed img {
+  width: 300px !important;
+  height: auto;
+}
 /* 📱 Mobile phones */
 @media (max-width: 600px) {
   .card_container {
@@ -114,6 +137,12 @@
   .product_container {
     grid-template-columns: repeat(2, 1fr);
     padding: 30px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .product_flexed {
+    display: flex;
+    flex-direction: column;
   }
 }
 
