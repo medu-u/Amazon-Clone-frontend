@@ -56,7 +56,7 @@ const totalItem= basket?.reduce((amount,item)=>{
               </select>
             </Link>
             {/* Three components */}
-            <Link to="" className={styles.account}>
+            <Link to="/auth" className={styles.account}>
               <p>Hello, Sign In</p>
               <span>Account & Lists</span>
               <select name="" id=""></select>
