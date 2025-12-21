@@ -1,13 +1,10 @@
 {
-  "homepage": "https://medu-u.github.io/Amazon-Clone-frontend",
   "name": "amazon-clone",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d dist",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -18,7 +15,6 @@
     "@mui/icons-material": "^7.3.6",
     "@mui/material": "^7.3.6",
     "axios": "^1.13.2",
-    "gh-pages": "^6.3.0",
     "numeral": "^2.0.6",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
