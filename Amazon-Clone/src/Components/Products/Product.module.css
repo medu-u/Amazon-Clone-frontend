@@ -5,7 +5,7 @@
   color: black;
   text-decoration: none;
   position: relative;
-  font-size: 12px;
+  font-size: 15px;
   height: 300px;
   margin: auto 0;
   background: #fff;
@@ -25,9 +25,9 @@
   object-fit: contain;
 }
 .card_container h3 {
-  font-size: 11px;
-  margin: 5px 0;
-  height: 10px;
+  font-size: 15px;
+  margin: 5px 5px;
+  height: 20px;
   overflow: hidden;
 }
 .button {
@@ -50,7 +50,7 @@
 .rating {
   display: flex;
   align-items: center;
-  padding: 5px 0px;
+  padding: 4px 0px;
   gap: 5px;
   margin: 5px 0;
 }

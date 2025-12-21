@@ -66,7 +66,7 @@ const totalItem= basket?.reduce((amount,item)=>{
               <span>& Orders</span>
             </Link>
             <Link to="/cart" className={styles.cart}>
-              <BiCart size={25} />
+              <BiCart size={40} />
               <span>{totalItem}</span>
             </Link>
           </div>
