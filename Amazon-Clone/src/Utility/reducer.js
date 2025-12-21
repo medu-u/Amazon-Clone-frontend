@@ -1,9 +1,10 @@
-import { useReducer } from 'react'
-import{Type} from './action.type'
+import { useReducer } from "react";
+import { Type } from "./action.type";
 
 export const initialState = {
-    basket:[]
-}
+  basket: [],
+  user: null,
+};
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -31,33 +32,34 @@ export const reducer = (state, action) => {
         };
       }
     }
-case Type.REMOVE_FROM_BASKET:
-    const index = state.basket.findIndex(item=>item.id===action.id)
-let newBasket = [...state.basket]
-if(index>=0){
+    case Type.REMOVE_FROM_BASKET:
+      const index = state.basket.findIndex((item) => item.id === action.id);
+      let newBasket = [...state.basket];
+      if (index >= 0) {
+        if (newBasket[index].amount > 1) {
+          newBasket[index] = {
+            ...newBasket(index),
+            amount: newBasket[index].amount - 1,
+          };
+        } else {
+          newBasket.splice(index, 1);
+        }
+      }
+      return {
+        ...state,
+        basket: newBasket,
+      };
 
-    if(newBasket[index].amount>1){
-        newBasket[index]={...newBasket(index),amount:newBasket[index].amount-1}
-    }else{
-        newBasket.splice(index,1)
-    }
-}
-return{
-    ...state, basket:newBasket
-}
+    case Type.SET_USER:
+      return {
+        ...state,
+        user: action.user,
+      };
 
     default:
       return state;
   }
 };
-  
-
-
-
-
-
-
-
 
 // export const  reducer = (state, action)=>{
 
@@ -68,10 +70,10 @@ return{
 //         if(!existingItem)
 //         {
 //            return{
-//             ...state, 
+//             ...state,
 //             basket:[...state.basket,{...action.item, amount:1}]
-//         } 
-//         }else 
+//         }
+//         }else
 //         const updatedBasket = state.basket.map((item)=>{
 //             return item.id === action.item.id? {...item,amount:item.amoun + 1}:item})
 //             return{
