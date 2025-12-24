@@ -49,7 +49,11 @@ export const reducer = (state, action) => {
         ...state,
         basket: newBasket,
       };
-
+    case Type.EMPTY_BASKET:
+      return {
+        ...state,
+        basket: [],
+      };
     case Type.SET_USER:
       return {
         ...state,
@@ -60,27 +64,3 @@ export const reducer = (state, action) => {
       return state;
   }
 };
-
-// export const  reducer = (state, action)=>{
-
-// switch (action.type) {
-//     case Type.ADD_TO_BASKET:
-//         // check if the item exists
-//         const existingItem =state.basket.find((item)=>item.id===action.item.id)
-//         if(!existingItem)
-//         {
-//            return{
-//             ...state,
-//             basket:[...state.basket,{...action.item, amount:1}]
-//         }
-//         }else
-//         const updatedBasket = state.basket.map((item)=>{
-//             return item.id === action.item.id? {...item,amount:item.amoun + 1}:item})
-//             return{
-//                 ...state,basket : updatedBasket
-//             };
-//         }
-//     default:
-//         return state;
-// }
-// };

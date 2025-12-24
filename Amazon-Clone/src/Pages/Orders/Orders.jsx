@@ -1,28 +1,58 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Styles from "./Orders.module.css";
 import LayOut from "../../Components/LayOut/LayOut";
 import { db } from "../../Utility/firebase";
 import { DataContext } from "../../Components/DataProvider/DataProvider";
-
-
+import ProductCard from "../../Components/Products/ProductCard";
 
 function Orders() {
-  const [{user}, dispatch]=useContext(DataContext);
-
-useEffect(()=>{
-
-}, []);
+  const [{ user }, dispatch] = useContext(DataContext);
+  const [orders, setOrders] = useState([]);
+  useEffect(() => {
+    if (user) {
+      db.collection("users")
+        .doc(user.uid)
+        .collection("orders")
+        .orderBy("created", "desc")
+        .onSnapshot((snapshot) => {
+          console.log(snapshot);
+          setOrders(
+            snapshot.docs.map((doc) => ({
+              id: doc.id,
+              data: doc.data(),
+            }))
+          );
+        });
+    } else {
+      setOrders([]);
+    }
+  }, []);
 
   return (
     <LayOut>
-     <section className={Styles.container}>
-      <div className={Styles.orders_container}>
-        <h2>Your Orders</h2>
-        <div>
+      <section className={Styles.container}>
+        <div className={Styles.orders_container}>
+          <h2>Your Orders</h2>
+          {
+            orders?.length==0 && <div style={{padding:"20px"}}>You don't have any orders yet.</div>
+          }
+          <div>
+            {orders?.map((eachOrder) => {
+              return (
+                <div>
 
+                  <hr />
+
+                  <p>Order Id:{eachOrder?.id} </p>
+                  {eachOrder?.data?.basket?.map((order) => {
+                   return (<ProductCard flex={true} product={order} key={order.id} />);
+                  })}
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </div>
-     </section>
+      </section>
     </LayOut>
   );
 }
