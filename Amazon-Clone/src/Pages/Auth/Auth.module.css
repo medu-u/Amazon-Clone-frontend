@@ -15,7 +15,7 @@
     flex-direction: column;
     border-radius: 5px;
     border: 1px solid lightgray;
-    padding: 20px;
+    padding: 10px;
 }
 .login_container h1{
     font-size: 25px;

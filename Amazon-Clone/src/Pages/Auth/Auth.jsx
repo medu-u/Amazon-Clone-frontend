@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import Styles from "./Auth.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { auth } from "../../Utility/firebase";
 import {
   signInWithEmailAndPassword,
@@ -9,7 +9,6 @@ import {
 import { DataContext } from "../../Components/DataProvider/DataProvider";
 import { Type } from "../../Utility/action.type";
 import { ClipLoader } from "react-spinners";
-
 
 function Auth() {
   const [email, setEmail] = useState("");
@@ -23,38 +22,39 @@ function Auth() {
   console.log(user);
 
   // navigation
-  const navigate=useNavigate()
-
-
+  const navigate = useNavigate();
+  const navStateData = useLocation();
+  console.log(navStateData);
 
   const authHandler = async (e) => {
     e.preventDefault();
     console.log(e.target.name);
     if (e.target.name == "signin") {
-       
+
       // firabase auth
-      setLoading({ ...loading, signIn: true })
-      signInWithEmailAndPassword(auth, email, password).then((userInfo) => {
-        dispatch({ type: Type.SET_USER, user: userInfo.user,
-         });
-      setLoading({ ...loading, signIn: false })
-      navigate("/")
-   })
-      .catch((err) => {
-        setError(err.message);
-        setLoading({ ...loading, signIn: false })
-      });
+      setLoading({ ...loading, signIn: true });
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userInfo) => {
+          dispatch({ type: Type.SET_USER, user: userInfo.user });
+          setLoading({ ...loading, signIn: false });
+          navigate(navStateData?.state?.redirect || "/");
+        })
+        .catch((err) => {
+          setError(err.message);
+          setLoading({ ...loading, signIn: false });
+        });
     } else {
       setLoading({ ...loading, signUp: true });
-      createUserWithEmailAndPassword(auth, email, password).then((userInfo) => {
-        dispatch({ type: Type.SET_USER, user: userInfo.user });
-      setLoading({ ...loading, signIn: false })
-      navigate("/")
- })
-      .catch((err) => {
-        setError(err.message);
-        setLoading({ ...loading, signIn: false });
-      });
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userInfo) => {
+          dispatch({ type: Type.SET_USER, user: userInfo.user });
+          setLoading({ ...loading, signIn: false });
+          navigate(navStateData?.state?.redirect || "/");
+        })
+        .catch((err) => {
+          setError(err.message);
+          setLoading({ ...loading, signIn: false });
+        });
     }
   };
 
@@ -63,7 +63,7 @@ function Auth() {
     <section className={Styles.login}>
       {/* logo */}
 
-      <Link to ="/" >
+      <Link to="/">
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png"
           alt=""
@@ -73,7 +73,17 @@ function Auth() {
 
       <div className={Styles.login_container}>
         <h1>Sign In</h1>
-
+        {navStateData?.state?.msg && (
+          <small
+            style={{
+              padding: "10px",
+              textAlign: "center",
+              color: "red",
+              fontWeight: "bold",
+            }}
+          >{navStateData?.state?.msg}</small>
+          
+        )}
         <form action="">
           <div>
             <label htmlFor="email">Email</label>
