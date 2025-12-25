@@ -1,21 +1,21 @@
 import firebase from "firebase/compat/app";
 // auth
-import {getAuth} from "firebase/auth"
-import "firebase/compat/firestore"
-import "firebase/compat/auth"
+import { getAuth } from "firebase/auth";
+import "firebase/compat/firestore";
+import "firebase/compat/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDpMLrk2Ga7URJsO7ootNdyzebu_cPf17U",
-  authDomain: "clone-d94b3.firebaseapp.com",
-  projectId: "clone-d94b3",
-  storageBucket: "clone-d94b3.firebasestorage.app",
-  messagingSenderId: "314299919508",
-  appId: "1:314299919508:web:9bff721338965745409881",
+  apiKey:import.meta.env.VITE_API_KEY,
+  authDomain:import.meta.env.VITE_AUTH_DOMAIN,
+  projectId:import.meta.env.VITE_PROJECT_ID,
+  storageBucket:import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId:import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId:import.meta.env.VITE_APP_ID,
 };
 
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
 
-export const auth = getAuth(app)
-export const db = app.firestore()
+export const auth = getAuth(app);
+export const db = app.firestore();
