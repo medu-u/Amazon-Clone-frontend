@@ -40,7 +40,7 @@ function Payment() {
 
     try {
       setProcessing(true);
-      
+
       // 1.backend/function-->to get client secret
       const response = await axiosInstance({
         method: "POST",
@@ -71,10 +71,12 @@ function Payment() {
           amount: paymentIntent.amount,
           created: paymentIntent.created,
         });
+
       // empty the basket
       dispatch({ type: Type.EMPTY_BASKET });
 
       setProcessing(false);
+
 // navigate to orders
       navigate("/orders", { state: { msg: "you have placed new order" } });
     } catch (error) {
@@ -86,9 +88,12 @@ function Payment() {
   return (
     <LayOut>
       {/* header */}
+
       <div className={Styles.payment_header}>Checkout ({totalItem}) items </div>
       {/* payment method */}
+
       <section className={Styles.payments}>
+
         {/* adress */}
         <div className={Styles.flex}>
           <h3>Delivery Address</h3>
@@ -97,6 +102,7 @@ function Payment() {
           <div>Chicago, IL</div>
         </div>
         <hr />
+
         {/* product */}
         <div className={Styles.flex}>
           <h3>Review items and delivery</h3>
@@ -115,10 +121,12 @@ function Payment() {
           <div className={Styles.payment_card_container}>
             <div className={Styles.payment_details}>
               <form onSubmit={handlePayment}>
+              
                 {/* error */}
                 {cardError && (
                   <small style={{ color: "red" }}>{cardError}</small>
                 )}
+
                 {/* card element */}
                 <CardElement onChange={handleChange} />
                 {/* price */}
