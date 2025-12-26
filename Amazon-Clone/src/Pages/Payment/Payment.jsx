@@ -40,6 +40,7 @@ function Payment() {
 
     try {
       setProcessing(true);
+      
       // 1.backend/function-->to get client secret
       const response = await axiosInstance({
         method: "POST",
@@ -74,7 +75,7 @@ function Payment() {
       dispatch({ type: Type.EMPTY_BASKET });
 
       setProcessing(false);
-
+// navigate to orders
       navigate("/orders", { state: { msg: "you have placed new order" } });
     } catch (error) {
       console.log(error);
