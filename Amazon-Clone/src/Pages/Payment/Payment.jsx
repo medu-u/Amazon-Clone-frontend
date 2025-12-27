@@ -57,7 +57,7 @@ function Payment() {
       });
       // console.log(paymentIntent);
 
-      // 3.after the confirmation--> order firestore database clear basket
+      // 3.after the confirmation--> order fire store database clear basket
 
       setProcessing(false);
 
@@ -94,7 +94,7 @@ function Payment() {
 
       <section className={Styles.payments}>
 
-        {/* adress */}
+        {/* address */}
         <div className={Styles.flex}>
           <h3>Delivery Address</h3>
           <div>{user?.email}</div>
@@ -117,7 +117,7 @@ function Payment() {
 
         {/* card form */}
         <div className={Styles.flex}>
-          <h3>Payment Mehods</h3>
+          <h3>Payment Methods</h3>
           <div className={Styles.payment_card_container}>
             <div className={Styles.payment_details}>
               <form onSubmit={handlePayment}>
